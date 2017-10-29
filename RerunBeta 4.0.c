@@ -22,10 +22,10 @@ void LCDtimer()
 	wait1Msec(10);
 }
 
-int leftdrivespeed[150];
-int leftdrivesensorvalue[150];
-int rightdrivesensorvalue[150];
-int rightdrivespeed[150];
+int leftdrivespeed[150]; //Records joystick values
+int leftdrivesensorvalue[150]; //Records sensor values
+int rightdrivesensorvalue[150]; //records more sensor values
+int rightdrivespeed[150]; //records more joystick values
 int forloop[150];
 int noiselesstimer;
 int leftside;
@@ -50,7 +50,7 @@ task main()
 		noiselesstimer=time1(T1)/100.00;
 		LCDtimer();
 		//recording from here down
-		if(time1[T1]== 10*forloop && (time1[T1] < 15000))
+		while(noiselesstimer==forloop && (time1[T1] < 15000))
 		{
 			leftdrivespeed[forloop]=rightside;
 			leftdrivesensorvalue[forloop]=SensorValue(leftencoder);
