@@ -30,10 +30,9 @@ int forloop[150];
 int noiselesstimer;
 int leftside;
 int rightside;
-int y;
-int w;
 task main()
 {
+	SensorValue(rightencoder)=0;
 	SensorValue(leftencoder)=0;
 	clearDebugStream();
 	clearLCDLine(0);
@@ -73,9 +72,9 @@ task main()
 			writeDebugStreamLine("};");
 			writeDebugStreamLine("");
 			writeDebugStreamLine("byte leftdrivesensorvalue[150]={");
-			for(w=1;w<16;w++)
+			for(int w=1;w<16;w++)
 			{
-				for(y=0;y<10;y++)
+				for(int y=0;y<10;y++)
 				{
 					writeDebugStream("%i,",leftdrivesensorvalue[w*y]);
 				}
